@@ -10,24 +10,16 @@ namespace DemoThuaKe
     internal class Program
     {
         static void Main(string[] args)
-        {
-            NhanVien nv1 = new NhanVien("Nguyen van A", "So 7 Thien quang", "anv@email.vn", "1900100 Cos", "Chuyen gia - phu ho");
-            NhanVien nv2 = new NhanVien("Nguyen van X", "Ha Noi", "xnv@email.vn", "0123456789", "KeToan");
+        {           
+            Tron t1 = new Tron();
+            t1.setBk(3);
 
-            //nv1.Show();
+            Vuong v1 = new Vuong();
+            v1.setCanh(5);
 
-            //KeToan kt = new KeToan("Nguyen van A", "So 7 Thien quang", "anv@email.vn", "1900100 Cos", "KeToan", 500);
-            //kt.Show();
+            Console.WriteLine("Dien tich t1 = " + t1.TinhDienTich());
+            Console.WriteLine("Dien tich v1 = " + v1.TinhDienTich());
 
-            ArrayList listNV = new ArrayList();
-
-            listNV.Add(nv1);
-            listNV.Add(nv2);
-
-            foreach (NhanVien nv in listNV)
-            {
-                nv.Show();
-            }
 
             Console.ReadLine();
 
