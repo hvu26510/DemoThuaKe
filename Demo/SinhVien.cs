@@ -8,6 +8,7 @@ namespace Demo
 {
     internal class SinhVien
     {
+        private int maSV;
         private string name;
         private double diem;
         private string email;
@@ -16,6 +17,11 @@ namespace Demo
         {
             return this.name;
         }
+        public int getMaSV()
+        {
+            return this.maSV;
+        }
+
         public string HocLuc()
         {
             if(this.diem < 5)
@@ -67,8 +73,9 @@ namespace Demo
             Console.WriteLine($"Hoc Luc : {this.HocLuc()}");
         }
 
-        public SinhVien(string name, double diem, string email)
+        public SinhVien(int maSV, string name, double diem, string email)
         {
+            this.maSV = maSV;
             this.name = name;
             this.diem = diem;
             this.email = email;
