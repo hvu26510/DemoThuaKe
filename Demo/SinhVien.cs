@@ -22,6 +22,10 @@ namespace Demo
             return this.maSV;
         }
 
+        public double getDiem()
+        {
+            return diem;
+        }
         public string HocLuc()
         {
             if(this.diem < 5)
