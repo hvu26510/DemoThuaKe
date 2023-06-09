@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo
 {
-    internal class SinhVien
+    public class SinhVien 
     {
         private int maSV;
         private string name;
@@ -89,4 +89,14 @@ namespace Demo
         {
         }
     }
+
+    public class SinhVienComparer : IComparer<SinhVien>
+    {
+        public int Compare(SinhVien x, SinhVien y)
+        {
+            // Sắp xếp theo điểm giảm dần
+            return y.getDiem().CompareTo(x.getDiem());
+        }
+    }
+
 }
