@@ -28,7 +28,13 @@ namespace Demo
             //SapXep(listSV);
 
             #endregion
-            SortArrayList(listSV);
+
+            FindByMaSVandUpdate(ref listSV, 6);
+
+            foreach(SinhVien sv in listSV)
+            {
+                sv.Xuat();
+            }
 
             Console.ReadLine();
         }
@@ -41,6 +47,18 @@ namespace Demo
                 sv.Xuat();
             }
 
+        }
+        public double TinhDiemTB(ref ArrayList listSV)
+        {
+            double diemTB = 0;
+            double tong = 0;
+            foreach (SinhVien sv in listSV)
+            {
+                tong = tong + sv.getDiem();
+            }
+
+            diemTB = tong/listSV.Count;
+            return diemTB;
         }
 
 
@@ -71,11 +89,6 @@ namespace Demo
 
         }
 
-        static ArrayList Sort(ArrayList list)
-        {
-            list.Sort();
-            return list;
-        }
 
         static List<SinhVien> SapXep1(ArrayList list)
         {
@@ -114,18 +127,25 @@ namespace Demo
             for (int i = 0; i < sv.Count; i++)
             {
                 tong += sv[i].getDiem();
+                
             }
 
             double diemTB = tong / sv.Count;
             Console.WriteLine(diemTB);
         }
 
-        static SinhVien FindByMaSV(ArrayList list, int MaSV)
+        static SinhVien FindByMaSVandUpdate(ref ArrayList list, int MaSV)
         {
             foreach (SinhVien sv in list)
             {
                 if (sv.getMaSV() == MaSV)
                 {
+                    sv.Xuat();
+                    int index = list.IndexOf(sv);
+                    SinhVien newSV = new SinhVien();
+                    newSV.Nhap();
+                    list[index] = newSV;
+
                     return sv;
                 }
             }
@@ -139,8 +159,8 @@ namespace Demo
             SinhVien sv2 = new SinhVien(2, "def", 5, "def@email");
             SinhVien sv3 = new SinhVien(3, "GH", 7, "gh@email");
             SinhVien sv4 = new SinhVien(4, "YK", 9, "yk@email");
-            SinhVien sv5 = new SinhVien(4, "YK", 9, "yk@email");
-            SinhVien sv6 = new SinhVien(4, "YK", 3, "yk@email");
+            SinhVien sv5 = new SinhVien(5, "YK", 9, "yk@email");
+            SinhVien sv6 = new SinhVien(6, "YK", 3, "yk@email");
             list.Add(sv1);
             list.Add(sv2);
             list.Add(sv3);
